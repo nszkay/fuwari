@@ -1,13 +1,10 @@
 {
   "name": "nszkablogs",
-  "main": "./dist/server/entry.mjs",
-  "compatibility_date": "2025-12-18", // 关键修复：替换为实际日期
+  "compatibility_date": "2025-12-18", // 保留正确的日期
   "compatibility_flags": ["nodejs_compat"],
   "workers_dev": true,
+  // 移除无效的 build.upload 配置，且不再指定 main 字段（静态部署不需要）
   "build": {
-    "command": "astro build",
-    "upload": {
-      "dir": "./dist/client"
-    }
+    "command": "astro build"
   }
 }
