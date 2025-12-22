@@ -3,7 +3,8 @@
 import fs from "fs"
 import path from "path"
 
-function getDate() {
+function getDate() 
+{
   const today = new Date()
   const year = today.getFullYear()
   const month = String(today.getMonth() + 1).padStart(2, "0")

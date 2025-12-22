@@ -12,3 +12,23 @@ const sortedPostsList = await getSortedPostsList();
     <ArchivePanel sortedPosts={sortedPostsList} client:only="svelte"></ArchivePanel>
 </MainGridLayout>
 
+
+
+<!-- 
+
+archive.astro是Fuwari博客主题中的文章归档页面组件，
+主要用于展示网站所有文章的时间线式归档列表，方便用户按
+年份查看和浏览历史文章。
+
+
+2.1 数据获取
+使用getSortedPostsList()函数从内容集合中获取所有文章
+该函数会过滤草稿文章（生产环境），并按发布日期降序排序
+返回简化的文章列表，仅包含slug和data字段（不包含文章内容）
+
+2.2 页面渲染
+使用MainGridLayout作为页面布局容器
+标题使用国际化处理，通过i18n(I18nKey.archive)获取归档页面标题
+引入并渲染ArchivePanel Svelte组件，传递排序后的文章列表
+使用client:only="svelte"指令确保该组件仅在客户端渲染
+-->
