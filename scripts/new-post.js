@@ -5,12 +5,12 @@ import path from "path"
 
 function getDate() 
 {
-  const today = new Date()
-  const year = today.getFullYear()
-  const month = String(today.getMonth() + 1).padStart(2, "0")
-  const day = String(today.getDate()).padStart(2, "0")
+  const today = new Date()  // 创建当前日期时间对象
+  const year = today.getFullYear()  // 获取4位年份（如2024）
+  const month = String(today.getMonth() + 1).padStart(2, "0")  // 获取月份（0-11）+1，转换为字符串并补0至两位数
+  const day = String(today.getDate()).padStart(2, "0")  // 获取日期（1-31），转换为字符串并补0至两位数
 
-  return `${year}-${month}-${day}`
+  return `${year}-${month}-${day}`  // 返回格式化后的日期字符串
 }
 
 const args = process.argv.slice(2)
@@ -28,6 +28,8 @@ const fileExtensionRegex = /\.(md|mdx)$/i
 if (!fileExtensionRegex.test(fileName)) {
   fileName += ".md"
 }
+
+
 
 const targetDir = "./src/content/posts/"
 const fullPath = path.join(targetDir, fileName)

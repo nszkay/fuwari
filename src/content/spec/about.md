@@ -1,7 +1,7 @@
-# About
-This is the demo site for [nszkay](https://github.com/nszka/fuwari).
+# nszkay_github
+This is the demo site for [nszkay](https://github.com/nszkay/fuwari).
 
-::github{repo="nszka/fuwari"}
+::github{repo="nszkay/fuwari"}
 
 > ### Sources of images used in this site
 > - [Unsplash](https://unsplash.com/)

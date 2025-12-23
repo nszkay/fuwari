@@ -6,14 +6,33 @@ import I18nKey from "../i18n/i18nKey";
 import { i18n } from "../i18n/translation";
 import MainGridLayout from "../layouts/MainGridLayout.astro";
 
+
+// 获取关于页面的内容
+// 从spec集合中获取about内容
 const aboutPost = await getEntry("spec", "about");
 
-if (!aboutPost) {
+
+
+if (!aboutPost) 
+{
 	throw new Error("About page content not found");
 }
 
 const { Content } = await render(aboutPost);
 ---
+
+
+<!-- 关于页面 -->
+<!-- 
+这是 Fuwari博客主题的"关于"页面 实现文件，采用Astro组件语法，主要功能是：
+
+个人介绍展示：      展示博主的个人信息和简介
+内容管理：          从内容集合中获取和渲染"关于"页面的内容
+多语言支持：        集成了国际化系统，支持多语言切换
+
+
+-->
+
 <MainGridLayout title={i18n(I18nKey.about)} description={i18n(I18nKey.about)}>
     <div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative min-h-32">
         <div class="card-base z-10 px-9 py-6 relative w-full ">
