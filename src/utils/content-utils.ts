@@ -18,7 +18,8 @@ import { getCategoryUrl } from "@utils/url-utils.ts";
  *  
  * 
  */
-async function getRawSortedPosts() {
+async function getRawSortedPosts() 
+{
 	const allBlogPosts = await getCollection("posts", ({ data }) => {
 		return import.meta.env.PROD ? data.draft !== true : true;
 	});

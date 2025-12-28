@@ -1,14 +1,21 @@
 //前端设置
+/*
 
+在./config.ts文件中，定义了网站的基本配置，包括网站标题、副标题、语言、主题颜色、横幅图片、目录索引等。
+
+自己在config.ts补充信息，设置前端个人资料
+*/
 
 import type 
 {
-	ExpressiveCodeConfig,
-	LicenseConfig,
-	NavBarConfig,
-	ProfileConfig,
-	SiteConfig,
+	ExpressiveCodeConfig,//代码高亮配置
+	LicenseConfig,//许可证配置
+	NavBarConfig,//导航栏配置
+	ProfileConfig,//个人资料配置
+	SiteConfig,//网站配置
 } from "./types/config";
+
+
 import { LinkPreset } from "./types/config";
 
 
@@ -19,7 +26,8 @@ export const siteConfig: SiteConfig = {
 	title: "nszkay",//网站标题
 	subtitle: "nszkay", //网站副标题
 	lang: "zh_CN", // Language code, e.g. 'en', 'zh_CN', 'ja', etc.
-	themeColor: {
+	themeColor: 
+	{
 		hue: 250, // Default hue for the theme color, from 0 to 360. e.g. red: 0, teal: 200, cyan: 250, pink: 345
 		fixed: false, // Hide the theme color picker for visitors
 	},
