@@ -45,7 +45,8 @@ if (!fs.existsSync(dirPath)) {
     fs.mkdirSync(dirPath, { recursive: true })
 }
 
-const content = `---
+const content = 
+`---
 title: ${args[0]}
 published: ${getDate()}
 description: ''

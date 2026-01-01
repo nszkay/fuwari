@@ -23,7 +23,7 @@ import "katex/dist/katex.css";
 
 // 布局属性
 interface Props 
-{		
+{
 	title?: string;//标题
 	banner?: string;//横幅
 	description?: string;//描述
@@ -52,25 +52,20 @@ const enableBanner = siteConfig.banner.enable;
 
 
 // 页面标题
-// 如果有标题，添加到页面标题中
 let pageTitle: string;
+// 如果有标题，添加到页面标题中
 if (title) 
 {
 	pageTitle = `${title} - ${siteConfig.title}`;
-} 
-else 
-{
+} else {
 	pageTitle = `${siteConfig.title} - ${siteConfig.subtitle}`;
 }
 
-
-// 收藏图标
 const favicons: Favicon[] =
 	siteConfig.favicon.length > 0 ? siteConfig.favicon : defaultFavicons;
 
 // const siteLang = siteConfig.lang.replace('_', '-')
-if (!lang) 
-{
+if (!lang) {
 	lang = `${siteConfig.lang}`;
 }
 const siteLang = lang.replace("_", "-");
