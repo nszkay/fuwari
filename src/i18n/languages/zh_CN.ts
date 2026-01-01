@@ -1,4 +1,4 @@
-import Key from "../i18nKey";
+import Key from "../i18nKey";//导入枚举
 import type { Translation } from "../translation";
 
 export const zh_CN: Translation = {

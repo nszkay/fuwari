@@ -1,5 +1,5 @@
-import { siteConfig } from "../config";
-import type I18nKey from "./i18nKey";
+import { siteConfig } from "../config";//导入配置
+import type I18nKey from "./i18nKey";//导入枚举
 import { en } from "./languages/en";
 import { es } from "./languages/es";
 import { id } from "./languages/id";
@@ -38,10 +38,14 @@ const map: { [key: string]: Translation } = {
 	tr_tr: tr,
 };
 
+
+//获取翻译
 export function getTranslation(lang: string): Translation {
 	return map[lang.toLowerCase()] || defaultTranslation;
 }
 
+
+//获取翻译键值
 export function i18n(key: I18nKey): string {
 	const lang = siteConfig.lang || "en";
 	return getTranslation(lang)[key];
