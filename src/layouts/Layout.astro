@@ -20,15 +20,13 @@ import type { Favicon } from "../types/config";
 import { pathsEqual, url } from "../utils/url-utils";
 import "katex/dist/katex.css";
 
-
 // 布局属性
-interface Props 
-{
-	title?: string;//标题
-	banner?: string;//横幅
-	description?: string;//描述
-	lang?: string;//语言
-	setOGTypeArticle?: boolean;//是否设置为文章类型
+interface Props {
+	title?: string; //标题
+	banner?: string; //横幅
+	description?: string; //描述
+	lang?: string; //语言
+	setOGTypeArticle?: boolean; //是否设置为文章类型
 }
 
 let { title, banner, description, lang, setOGTypeArticle } = Astro.props;
@@ -50,12 +48,10 @@ banner = siteConfig.banner.src;
 
 const enableBanner = siteConfig.banner.enable;
 
-
 // 页面标题
 let pageTitle: string;
 // 如果有标题，添加到页面标题中
-if (title) 
-{
+if (title) {
 	pageTitle = `${title} - ${siteConfig.title}`;
 } else {
 	pageTitle = `${siteConfig.title} - ${siteConfig.subtitle}`;

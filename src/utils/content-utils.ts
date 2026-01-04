@@ -3,23 +3,16 @@ import I18nKey from "@i18n/i18nKey";
 import { i18n } from "@i18n/translation";
 import { getCategoryUrl } from "@utils/url-utils.ts";
 
-
-
-
-
-
-
 // // Retrieve posts and sort them by publication date
 
 /**
  * getRawSortedPosts() 是 Fuwari 博客主题中文章数据管理的基
  * 础函数，它实现了环境感知的文章获取和按发布日期排序的功能，为博客
  * 的文章列表、归档页等功能提供了核心数据支持。
- *  
- * 
+ *
+ *
  */
-async function getRawSortedPosts() 
-{
+async function getRawSortedPosts() {
 	const allBlogPosts = await getCollection("posts", ({ data }) => {
 		return import.meta.env.PROD ? data.draft !== true : true;
 	});
@@ -32,24 +25,15 @@ async function getRawSortedPosts()
 	return sorted;
 }
 
-
-
-
-
-
-
-
-
-
 /**
- * 
- * 
+ *
+ *
  * getSortedPosts() 是 Fuwari 博客主题中的一个核心工具函数，
  * 它扩展了基础文章列表，为每篇文章添加了前后导航功能，使文章之
  * 间可以相互链接，提升用户阅读体验。
- * 
- * 
- * 
+ *
+ *
+ *
  */
 
 export async function getSortedPosts() {
@@ -57,14 +41,12 @@ export async function getSortedPosts() {
 	const sorted = await getRawSortedPosts();
 
 	// 为每篇文章添加前一篇文章的信息
-	for (let i = 1; i < sorted.length; i++) 
-	{
+	for (let i = 1; i < sorted.length; i++) {
 		sorted[i].data.nextSlug = sorted[i - 1].slug;
 		sorted[i].data.nextTitle = sorted[i - 1].data.title;
 	}
 	// 为每篇文章添加后一篇文章的信息
-	for (let i = 0; i < sorted.length - 1; i++) 
-	{
+	for (let i = 0; i < sorted.length - 1; i++) {
 		sorted[i].data.prevSlug = sorted[i + 1].slug;
 		sorted[i].data.prevTitle = sorted[i + 1].data.title;
 	}
@@ -72,74 +54,38 @@ export async function getSortedPosts() {
 	return sorted;
 }
 
-
-
-
 export type PostForList = {
 	slug: string;
 	data: CollectionEntry<"posts">["data"];
 };
 
-
-
-
-
-
-
-
 /**
  * getSortedPostsList() 是 Fuwari 博客主题中的一个工具函数，
  * 用于获取精简版的博客文章列表数据。它从完整的文章数据中提取必要
  * 信息，用于博客中的列表展示场景，如首页、归档页、分类页等。
- * 
- * 
- * 
+ *
+ *
+ *
  */
 
-export async function getSortedPostsList(): Promise<PostForList[]> 
-{
-
+export async function getSortedPostsList(): Promise<PostForList[]> {
 	//获取原始排序的文章列表
 	const sortedFullPosts = await getRawSortedPosts();
 
 	// delete post.body
 	// 从每篇文章中提取必要信息，用于列表展示
-	const sortedPostsList = sortedFullPosts.map
-	(
-		(post) => 
-		(
-			{
-				slug: post.slug,
-				data: post.data,
-			}
-		)
-	);
-
+	const sortedPostsList = sortedFullPosts.map((post) => ({
+		slug: post.slug,
+		data: post.data,
+	}));
 
 	return sortedPostsList;
 }
-
-
-
-
 
 export type Tag = {
 	name: string;
 	count: number;
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 export async function getTagList(): Promise<Tag[]> {
 	const allBlogPosts = await getCollection<"posts">("posts", ({ data }) => {

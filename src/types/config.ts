@@ -20,8 +20,7 @@
 
 import type { AUTO_MODE, DARK_MODE, LIGHT_MODE } from "@constants/constants";
 
-export type SiteConfig = 
-{
+export type SiteConfig = {
 	title: string;
 	subtitle: string;
 
@@ -66,15 +65,12 @@ export type Favicon = {
 	sizes?: string;
 };
 
-
 // 导航栏链接预设
-export enum LinkPreset 
-{
-	Home = 0,//首页
-	Archive = 1,//归档页
-	About = 2,//关于页
+export enum LinkPreset {
+	Home = 0, //首页
+	Archive = 1, //归档页
+	About = 2, //关于页
 }
-
 
 //·导航栏链接配置
 export type NavBarLink = {
@@ -88,14 +84,12 @@ export type NavBarConfig = {
 	links: (NavBarLink | LinkPreset)[];
 };
 
-
 //·个人资料配置
 export type ProfileConfig = {
 	avatar?: string;
 	name: string;
 	bio?: string;
-	links: 
-	{
+	links: {
 		name: string;
 		url: string;
 		icon: string;
@@ -109,13 +103,11 @@ export type LicenseConfig = {
 	url: string;
 };
 
-
 //·主题模式配置
 export type LIGHT_DARK_MODE =
 	| typeof LIGHT_MODE
 	| typeof DARK_MODE
 	| typeof AUTO_MODE;
-
 
 //·博客文章数据
 export type BlogPostData = {
@@ -132,7 +124,6 @@ export type BlogPostData = {
 	nextTitle?: string;
 	nextSlug?: string;
 };
-
 
 //·代码高亮配置
 export type ExpressiveCodeConfig = {

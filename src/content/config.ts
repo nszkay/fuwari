@@ -1,15 +1,14 @@
 /**
- * 
+ *
  * 使用Astro的内容集合API
  * 引入Zod库进行数据验证
- * 
+ *
  * 文章集合配置
  * 定义文章的字段和验证规则
  *
- * 
- * 
+ *
+ *
  */
-
 
 import { defineCollection, z } from "astro:content";
 
@@ -56,10 +55,8 @@ const specCollection = defineCollection({
 	schema: z.object({}),
 });
 
-
 // 导出所有集合定义，供Astro内容API使用。
-export const collections = 
-{
+export const collections = {
 	posts: postsCollection,
 	spec: specCollection,
 };
